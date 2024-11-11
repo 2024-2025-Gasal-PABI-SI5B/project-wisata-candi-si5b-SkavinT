@@ -156,76 +156,80 @@ class DetailScreen extends StatelessWidget{
                 ),
               ),
               //Gallery
-              Padding(padding:const EdgeInsets.all(15),
-              child:Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Divider(
-                    color: Colors.deepPurple.shade100,
-                  ),
-                  Text(
-                    'Gallery',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 8,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  SizedBox(
-                    height: 100,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: candi.imageUrls.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: EdgeInsets.only(right: 8),
-                          child: GestureDetector(
-                            onTap: () {
-                              // Handle tap event
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(
-                                  color: Colors.deepPurple[100]!,
-                                  width: 2,
+                    Divider(
+                      color: Colors.deepPurple.shade100,
+                    ),
+                    Text(
+                      'Gallery',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    SizedBox(
+                      height: 100,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: candi.imageUrls.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.only(right: 8),
+                            child: GestureDetector(
+                              onTap: () {
+                                // Handle tap event
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                    color: Colors.deepPurple[100]!,
+                                    width: 2,
+                                  ),
                                 ),
-                              ),
-                              child: CachedNetworkImage(
-                                imageUrl: candi.imageUrls[index],
-                                height: 120,
-                                width: 120,
-                                fit: BoxFit.cover,
-                                placeholder: (context, url) => Container(
-                                  width: 120,
-                                  height: 120,
-                                  color: Colors.deepPurple[50], // Corrected 'colors' to 'Colors'
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: CachedNetworkImage(
+                                    imageUrl: candi.imageUrls[index],
+                                    height: 120,
+                                    width: 120,
+                                    fit: BoxFit.cover,
+                                    placeholder: (context, url) => Container(
+                                      width: 120,
+                                      height: 120,
+                                      color: Colors.deepPurple[50],
+                                    ),
+                                    errorWidget: (context, url, error) => const Icon(Icons.error),
+                                  ),
                                 ),
-                                errorWidget: (context, url, error) => 
-                                const Icon(Icons.error),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  const Text(
-                    'Tap untuk memperbesar',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.black54,
+                    const SizedBox(
+                      height: 4,
                     ),
-                  ),
-                ],
+                    const Text(
+                      'Tap untuk memperbesar',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
