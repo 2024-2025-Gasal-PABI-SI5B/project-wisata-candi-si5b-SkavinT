@@ -1,3 +1,3 @@
-# flutter_application_1
+# wisata_candi
 
 A new Flutter project.
