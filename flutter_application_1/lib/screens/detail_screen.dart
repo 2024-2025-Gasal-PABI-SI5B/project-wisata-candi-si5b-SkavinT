@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_application_1/models/candi.dart';
-import 'package:wisata_candi/models/candi.dart';
+import '../models/candi.dart';
   
 class DetailScreen extends StatelessWidget{
   final Candi candi;
@@ -25,23 +24,8 @@ class DetailScreen extends StatelessWidget{
                       child: Image.asset(
                         candi.imageAsset,
                         width: double.infinity,
-                        height: 300,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.cover, // Added fit property to ensure the image covers the container
                       ),
-                    ),
-                  ),
-                  //Tombol Back Custom
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.deepPurple[100]?.withOpacity(0.8),
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                        onPressed: (){}, 
-                        icon: const Icon(Icons.arrow_back)
-                        ),
                     ),
                   ),
                 ],
@@ -167,7 +151,7 @@ class DetailScreen extends StatelessWidget{
                     Divider(
                       color: Colors.deepPurple.shade100,
                     ),
-                    Text(
+                    const Text(
                       'Gallery',
                       style: TextStyle(
                         fontSize: 16,
@@ -184,7 +168,7 @@ class DetailScreen extends StatelessWidget{
                         itemCount: candi.imageUrls.length,
                         itemBuilder: (context, index) {
                           return Padding(
-                            padding: EdgeInsets.only(right: 8),
+                            padding: const EdgeInsets.only(right: 8),
                             child: GestureDetector(
                               onTap: () {
                                 // Handle tap event
